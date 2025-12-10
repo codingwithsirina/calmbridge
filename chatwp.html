@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat with Parents</title>
+<link rel="stylesheet" href="global.css">
+<style>
+.chat-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
+.chat-messages {
+  min-height: 300px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+.message {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.sent {
+  background-color: #007bff;
+  color: #fff;
+  align-self: flex-end;
+}
+.received {
+  background-color: #f1f1f1;
+  color: #333;
+  align-self: flex-start;
+}
+.chat-input {
+  display: flex;
+  gap: 10px;
+}
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.chat-input button {
+  padding: 10px 15px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<header class="navbar">
+    <nav class="nav-left">
+         <ul>
+            <a href="docterdascbord.html" class="active">Patients</a>
+            <a href="analystic.html">Analytics</a>
+            <a href="medical.html">Reports</a>
+            <a href="chatwp.html">Chat Parents</a>
+            <a href="rating.html">Ratings</a>
+        </ul>
+    </nav>
+</header>
+
+
+<div class="container">
+  <h1>Chat with Parents</h1>
+  <div class="chat-box">
+    <div id="chatMessages" class="chat-messages"></div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Type your message...">
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const doctorName = localStorage.getItem('doctorName') || 'Doctor';
+document.getElementById('doctorName').textContent = `Dr. ${doctorName}`;
+function logout() {
+  localStorage.removeItem('doctorName');
+  window.location.href = 'index.html';
+}
+
+const sendBtn = document.getElementById('sendBtn');
+const chatInput = document.getElementById('chatInput');
+const chatMessages = document.getElementById('chatMessages');
+
+function addMessage(text, type) {
+  const msg = document.createElement('div');
+  msg.classList.add('message', type);
+  msg.textContent = text;
+  chatMessages.appendChild(msg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+sendBtn.addEventListener('click', () => {
+  const message = chatInput.value.trim();
+  if (message) {
+    addMessage(message, 'sent');
+    chatInput.value = '';
+    setTimeout(() => {
+      addMessage("Parent: Thank you for your message!", 'received');
+    }, 1000);
+  }
+});
+
+chatInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') sendBtn.click();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9ff;
+    margin: 0;
+    padding: 0;
+}
+
+.exit-btn {
+    background: #f43f5e;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.main-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.title {
+    color: #1e293b;
+    font-size: 28px;
+}
+
+.progress-box {
+    background: linear-gradient(90deg, #d1fae5, #a7f3d0);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px auto;
+    width: 80%;
+}
+
+.progress-bar {
+    background: #e5e7eb;
+    height: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.progress {
+    background: #10b981;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.task-list {
+    margin-top: 20px;
+}
+
+.task {
+    background: #fff;
+    padding: 15px;
+    margin: 10px auto;
+    width: 80%;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task.completed {
+    border-left: 5px solid #10b981;
+}
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 15px;
+    margin: 10px auto;
+    width: 80%;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.task input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task-text {
+    font-size: 18px;
+    color: #1e293b;
+}
+
+.task.completed .task-text {
+    color: #10b981; /* Vert quand complété */
+    font-weight: bold;
+}
+
+.progress-bar {
+    background: #e5e7eb;
+    height: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.progress {
+    background: #10b981;
+    height: 10px;
+    border-radius: 5px;
+    width: 0%;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #1e293b;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.navbar li a:hover,
+.navbar li.active a {
+    background: #1e293b;
+    color: #fff;
+}
+
+

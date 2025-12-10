@@ -1,0 +1,210 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #fceabb, #f8b500);
+    color: #333;
+}
+
+/* Barre de navigation */
+.navbar {
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 0;
+    list-style: none;
+}
+
+.navbar li {
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.navbar li i {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.navbar li.active, .navbar li:hover {
+    color: #f8b500;
+}
+
+/* Sections */
+.section {
+    display: none;
+    padding: 80px 20px 20px;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Accueil */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card:nth-child(2) {
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+}
+
+.card:nth-child(3) {
+    background: linear-gradient(135deg, #fddb92, #d1fdff);
+}
+
+.card:nth-child(4) {
+    background: linear-gradient(135deg, #84fab0, #8fd3f4);
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* My Day */
+.progress-bar {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.bar {
+    width: 100%;
+    height: 20px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.fill {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #84fab0, #8fd3f4);
+    transition: width 0.5s ease;
+}
+
+.activities {
+    list-style: none;
+    padding: 0;
+}
+
+.activities li {
+    background: #fff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Games */
+.game-cards {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.game-card {
+    flex: 1;
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+}
+
+#game-area {
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* Chat */
+.chat-box {
+    background: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.chat-input button {
+    background: #f8b500;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.chat-input button:hover {
+    background: #d49e00;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}

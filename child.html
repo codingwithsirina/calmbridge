@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalmBridge - Tableau de bord enfant</title>
+    <!-- Google Fonts -->
+    https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap
+    <!-- Font Awesome -->
+    https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
+    <!-- CSS -->
+    <link rel="stylesheet" href="stylechild.css">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <ul>
+            <li data-section="home" class="active"><i class="fas fa-home"></i> Home</li>
+            <li data-section="myday"><i class="fas fa-calendar-day"></i> My Day</li>
+            <li data-section="games"><i class="fas fa-gamepad"></i> Games</li>
+            <li data-section="myfriend"><i class="fas fa-robot"></i> My Friend</li>
+            <li data-section="talkparent"><i class="fas fa-user-friends"></i> Talk to Mom/Dad</li>
+            <li class="exit"><i class="fas fa-sign-out-alt"></i> <a href="index.html">exit</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sections -->
+    <main>
+        <!-- Accueil -->
+        <section id="home" class="section active">
+            <h1>Hello, ! 🌟</h1>
+            <p>What would you like to do today?</p>
+            <div class="cards">
+                <div class="card" data-section="myday"><i class="fas fa-calendar-day"></i><span>My Day</span></div>
+                <div class="card" data-section="games"><i class="fas fa-gamepad"></i><span>Games</span></div>
+                <div class="card" data-section="myfriend"><i class="fas fa-robot"></i><span>My Friend</span></div>
+                <div class="card" data-section="talkparent"><i class="fas fa-user-friends"></i><span>Talk to Mom/Dad</span></div>
+            </div>
+            <div class="heart-rate">❤️ Heart Rate: 85 BPM</div>
+        </section>
+
+        <!-- My Day -->
+        <section id="myday" class="section">
+            <h2>My Daily Schedule</h2>
+            <p>Here's what we're doing today!</p>
+            <div class="progress-bar">
+                <span>Great Progress! 🌞</span>
+                <div class="bar"><div class="fill"></div></div>
+                <p>You’ve completed <span id="completed">0</span> out of <span id="total">6</span> activities today!</p>
+            </div>
+            <ul class="activities">
+                <!-- Activités générées par JS -->
+            </ul>
+        </section>
+
+        <!-- Games -->
+        <section id="games" class="section">
+            <h2>Fun Games! 🎮</h2>
+            <div class="points">🏆 Your Points: <span id="points">0</span></div>
+            <div class="game-cards">
+                <div class="game-card" data-game="memory">Memory Match</div>
+                <div class="game-card" data-game="color">Color Fun</div>
+                <div class="game-card" data-game="puzzle">Puzzle</div>
+            </div>
+            <div id="game-area"></div>
+        </section>
+
+        <!-- My Friend (Chat AI) -->
+        <section id="myfriend" class="section">
+            <h2>Your Virtual Friend 🤖</h2>
+            <div class="chat-box" id="ai-chat"></div>
+            <div class="chat-input">
+                <input type="text" id="ai-input" placeholder="Tell me how you feel...">
+                <button id="ai-send"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </section>
+
+        <!-- Talk to Mom/Dad -->
+        <section id="talkparent" class="section">
+            <h2>Chat with Mom/Dad 💬</h2>
+            <div class="chat-box" id="parent-chat"></div>
+            <div class="chat-input">
+                <input type="text" id="parent-input" placeholder="Type your message...">
+                <button id="parent-send"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </section>
+    </main>
+
+    <!-- JS -->
+    script.js</script>
+</body>
+</html>

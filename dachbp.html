@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overview</title>
+  <link rel="stylesheet" href="global.css">
+  <style>
+    .editable-input {
+      display: none;
+      margin-top: 10px;
+      padding: 5px;
+      width: 80%;
+    }
+    .activity-item {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      border-radius: 5px;
+      margin-bottom: 5px;
+    }
+    .completed-bg { background-color: #d4edda; } /* Vert */
+    .in-progress-bg { background-color: #cce5ff; } /* Bleu */
+    .pending-bg { background-color: #f8d7da; } /* Rouge */
+    select.status-select {
+      display: none;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+     <a href="dachbp.html">Overview</a>
+      <a href="activiter.html">Activities</a>
+      <a href="health.html">Health</a>
+      <a href="progress.html">Progress</a>
+      <a href="chatwc.html">Chat Child</a>
+      <a href="chatdoc.html">Chat Doctor</a>
+    </div>
+    <button class="logout-btn"><a href="index.html">logout</a></button>
+  </nav>
+
+  <div class="container">
+    
+
+<h1 id="welcomeMsg">Welcome back </h1>
+<script>
+  const parentName = localStorage.getItem('nomcomp') || 'User';
+  document.getElementById('welcomeMsg').textContent = `Welcome back, ${parentName}`;
+</script>
+
+
+
+    <!-- Cards -->
+    <div class="cards">
+      <div class="card blue" id="activitiesCard">
+        <p>Today's Activities</p>
+        <h2 id="activitiesValue">3 of 5</h2>
+        <input type="text" id="activitiesInput" class="editable-input" value="3 of 5">
+      </div>
+      <div class="card pink" id="heartCard">
+        <p>Average Heart Rate</p>
+        <h2 id="heartValue">82 BPM</h2>
+        <input type="text" id="heartInput" class="editable-input" value="82 BPM">
+      </div>
+      <div class="card purple" id="gamesCard">
+        <p>Games Played</p>
+        <h2 id="gamesValue">7</h2>
+        <input type="text" id="gamesInput" class="editable-input" value="7">
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="recent">
+      <h2>Recent Activity</h2>
+      <ul>
+        <li class="activity-item completed-bg">
+          <span>Morning therapy session</span>
+          <span class="status-text">Completed</span>
+          <select class="status-select">
+            <option value="Completed" selected>Completed</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Pending">Pending</option>
+          </select>
+        </li>
+        <li class="activity-item in-progress-bg">
+          <span>Memory matching game</span>
+          <span class="status-text">In Progress</span>
+          <select class="status-select">
+            <option value="Completed">Completed</option>
+            <option value="In Progress" selected>In Progress</option>
+            <option value="Pending">Pending</option>
+          </select>
+        </li>
+        <li class="activity-item pending-bg">
+          <span>Afternoon walk</span>
+          <span class="status-text">Pending</span>
+          <select class="status-select">
+            <option value="Completed">Completed</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Pending" selected>Pending</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Double-clic pour modifier les cartes
+    const cards = [
+      {id: 'activitiesCard', valueId: 'activitiesValue', inputId: 'activitiesInput'},
+      {id: 'heartCard', valueId: 'heartValue', inputId: 'heartInput'},
+      {id: 'gamesCard', valueId: 'gamesValue', inputId: 'gamesInput'}
+    ];
+
+    cards.forEach(card => {
+      const cardElement = document.getElementById(card.id);
+      const valueElement = document.getElementById(card.valueId);
+      const inputElement = document.getElementById(card.inputId);
+
+      cardElement.addEventListener('dblclick', () => {
+        inputElement.style.display = 'block';
+        inputElement.focus();
+      });
+
+      inputElement.addEventListener('change', () => {
+        valueElement.textContent = inputElement.value;
+        inputElement.style.display = 'none';
+      });
+    });
+
+    // Modifier l'état des activités
+    document.querySelectorAll('.activity-item').forEach(item => {
+      const statusText = item.querySelector('.status-text');
+      const select = item.querySelector('.status-select');
+
+      statusText.addEventListener('click', () => {
+        select.style.display = 'inline-block';
+      });
+
+      select.addEventListener('change', () => {
+        const newStatus = select.value;
+        statusText.textContent = newStatus;
+        select.style.display = 'none';
+
+        // Changer la couleur du bloc
+        item.classList.remove('completed-bg', 'in-progress-bg', 'pending-bg');
+        if (newStatus === 'Completed') {
+          item.classList.add('completed-bg');
+        } else if (newStatus === 'In Progress') {
+          item.classList.add('in-progress-bg');
+        } else {
+          item.classList.add('pending-bg');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

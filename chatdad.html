@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talk to Mom/Dad</title>
+<link rel="stylesheet" href="home.css">
+<script defer src="sent.js"></script>
+</head>
+<body>
+<header class="navbar">
+    <nav>
+        <ul>
+            <li class="active"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="mydaily.html"><i class="fas fa-calendar-day"></i> My Day</a></li>
+            <li><a href="games.html"><i class="fas fa-gamepad"></i> Games</a></li>
+            <li><a href="chatai.html"><i class="fas fa-user-friends"></i> My Friend</a></li>
+            <li><a href="chatdad.html"><i class="fas fa-comments"></i> Talk to Mom/Dad</a></li>
+        </ul>
+    </nav>
+    <div>Dr. | <button class="exit-btn"><a href="index.html">logout</a></button></div>
+</header>
+
+<section class="chat">
+    <h2>Chat with Mom/Dad</h2>
+    <div class="chat-box" id="chat-box">
+        <div class="message">Hi Mom! I had so much fun playing the memory game today! 🌟</div>
+    </div>
+    <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Type your message...">
+        <button class="send-btn" onclick="sendMessage()">➤</button>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Monitoring</title>
+<!-- FontAwesome pour les icônes -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f9f9fc;
+  margin: 0;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.nav-left a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+}
+.nav-left a.active {
+  font-weight: bold;
+  color: #6a0dad;
+}
+.logout-btn {
+  background: transparent;
+  border: none;
+  color: #e74c3c;
+  font-weight: bold;
+  cursor: pointer;
+}
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.card {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card:nth-child(1) { background: #ffe5e5; }
+.card:nth-child(2) { background: #e5f0ff; }
+.card:nth-child(3) { background: #e5ffe5; }
+.card i {
+  font-size: 28px;
+  color: #6a0dad;
+}
+.section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+.section h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #333;
+}
+.heart-rate {
+  display: flex;
+  gap: 10px;
+}
+.heart-rate div {
+  background: #ffe5e5;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  flex: 1;
+  font-weight: bold;
+}
+.activity-list {
+  margin-top: 10px;
+}
+.activity-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+.activity-item i {
+  color: #f39c12;
+}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="dachbp.html">Overview</a>
+    <a href="activiter.html">Activities</a>
+    <a href="health.html" class="active">Health</a>
+    <a href="progress.html">Progress</a>
+    <a href="chatdoc.html">Chat Doctor</a>
+    <a href="chatwc.html">Chat Child</a>
+  </div>
+  <div>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>Health Monitoring</h1>
+  <!-- Cards -->
+  <div class="cards">
+    <div class="card">
+      <div>
+        <p>Average Heart Rate</p>
+        <h2>85</h2>
+        <span>Normal range</span>
+      </div>
+      <i class="fa-solid fa-heart"></i>
+    </div>
+    <div class="card">
+      <div>
+        <p>Total Activity</p>
+        <h2>100</h2>
+        <span>minutes today</span>
+      </div>
+      <i class="fa-solid fa-person-running"></i>
+    </div>
+    <div class="card">
+      <div>
+        <p>Wellness Score</p>
+        <h2>8.5</h2>
+        <span>out of 10</span>
+      </div>
+      <i class="fa-solid fa-chart-line"></i>
+    </div>
+  </div>
+
+  <!-- Heart Rate Today -->
+  <div class="section">
+    <h3><i class="fa-solid fa-heart"></i> Heart Rate Today</h3>
+    <div class="heart-rate">
+      <div>85<br><small>9:00 AM</small></div>
+      <div>82<br><small>10:00 AM</small></div>
+      <div>88<br><small>11:00 AM</small></div>
+      <div>90<br><small>12:00 PM</small></div>
+      <div>86<br><small>1:00 PM</small></div>
+      <div>78<br><small>2:00 PM</small></div>
+      <div>83<br><small>3:00 PM</small></div>
+    </div>
+    <p style="margin-top:10px;">Heart rate measured in beats per minute (BPM)</p>
+  </div>
+
+  <!-- Movement & Activities -->
+  <div class="section">
+    <h3><i class="fa-solid fa-arrow-trend-up"></i> Movement & Activities</h3>
+    <div class="activity-list">
+      <div class="activity-item">
+        <span>Walking - Duration: 45 min</span>
+        <span><i class="fa-solid fa-fire"></i> Calories: 120</span></i> Calories: 50</span>
+      </div>
+      <div class="activity-item">
+        <span>Memory Game - Duration: 30 min</span>
+        <span><i class="fa-solid fa-fire"></i> Calories: 80</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function logout() {
+  localStorage.removeItem('username');
+  window.location.href = 'index.html';
+}
+</script>
+</body>
+</html>

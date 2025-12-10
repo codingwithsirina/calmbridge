@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home - Daily App</title>
+<link rel="stylesheet" href="dach.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- Navigation -->
+<header class="navbar">
+    <nav>
+        <ul>
+            <li class="active"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="mydaily.html"><i class="fas fa-calendar-day"></i> My Day</a></li>
+            <li><a href="games.html"><i class="fas fa-gamepad"></i> Games</a></li>
+            <li><a href="chatai.html"><i class="fas fa-user-friends"></i> My Friend</a></li>
+            <li><a href="chatdad.html"><i class="fas fa-comments"></i> Talk to Mom/Dad</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="navbar">
+    <div id="display-name"></div>
+    <button onclick="logout()" class="exit-btn">Logout</button>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const name = localStorage.getItem('userName') || "Utilisateur";
+    const role = localStorage.getItem('userRole') || "";
+    document.getElementById('display-name').innerText = `${role.toUpperCase()}: ${name}`;
+});
+
+function logout() {
+    localStorage.clear();
+    window.location.href = "index.html"; // Retour à la page d'accueil
+}
+</script>
+
+
+<!-- Main Content -->
+<section class="home">
+    <h2 id="childWelcome">Hello, Child</h2>
+<script>
+  const childName = localStorage.getItem('childName') || 'Child';
+  document.getElementById('childWelcome').textContent = `Hello, ${childName}`;
+</script>
+    <p class="subtitle">What would you like to do today?</p>
+
+    <div class="home-buttons">
+        <a href="mydaily.html" class="home-btn green">
+            <i class="fas fa-calendar-day"></i> My Day
+        </a>
+        <a href="games.html" class="home-btn purple">
+            <i class="fas fa-gamepad"></i> Games
+        </a>
+        <a href="friend.html" class="home-btn pink">
+            <i class="fas fa-user-friends"></i> My Friend
+        </a>
+        <a href="parents.html" class="home-btn orange">
+            <i class="fas fa-comments"></i> Talk to Mom/Dad
+        </a>
+    </div>
+
+    <div class="heart-rate">
+        ❤️ Heart Rate: <span id="heart-rate">85 BPM</span>
+    </div>
+</section>
+
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
+<script>
+    // Exemple : mise à jour du rythme cardiaque toutes les 5 secondes
+const heartRateElement = document.getElementById('heart-rate');
+
+function updateHeartRate() {
+    const randomRate = Math.floor(Math.random() * (95 - 75 + 1)) + 75;
+    heartRateElement.textContent = `${randomRate} BPM`;
+}
+
+setInterval(updateHeartRate, 5000);
+
+</script>

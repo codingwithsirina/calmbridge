@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activities</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar">
+     <a href="dachbp.html">Overview</a>
+      <a href="activiter.html">Activities</a>
+      <a href="health.html">Health</a>
+      <a href="progress.html">Progress</a>
+      <a href="chatwc.html">Chat Child</a>
+      <a href="chatdoc.html">Chat Doctor</a>
+    </div>
+    <div>Dr.| <button class="button"><a href="index.html">logout</a></button></div>
+  </nav>
+
+  <div class="container">
+    <h1>Activity Management</h1>
+    <button id="addActivityBtn" style="margin-bottom:15px; padding:10px; background:#007bff; color:#fff; border:none; border-radius:5px; cursor:pointer;">
+      + Add Activity
+    </button>
+
+    <div class="activity-list">
+      <ul id="activityList">
+        <li class="activity-item">
+          <span>Morning Therapy - Fun exercises with therapist (09:00)</span>
+          <button class="mark-complete">Mark Complete</button>
+        </li>
+        <li class="activity-item">
+          <span>Art Time - Draw and paint beautiful pictures (11:30)</span>
+          <button class="mark-complete">Mark Complete</button>
+        </li>
+        <li class="activity-item">
+          <span>Lunch - Yummy lunch with family (12:30)</span>
+          <button class="mark-complete">Mark Complete</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
+<script>
+// Marquer une activité comme complétée et changer la couleur
+document.querySelectorAll('.mark-complete').forEach(button => {
+  button.addEventListener('click', () => {
+    const parentLi = button.closest('.activity-item');
+    parentLi.style.backgroundColor = '#d4edda'; // Vert clair
+    button.textContent = 'Completed';
+    button.style.backgroundColor = 'green';
+  });
+});
+
+// Ajouter une nouvelle activité avec saisie
+const addBtn = document.getElementById('addActivityBtn');
+const activityList = document.getElementById('activityList');
+
+if (addBtn) {
+  addBtn.addEventListener('click', () => {
+    const activityName = prompt("Entrez le nom de l'activité :");
+    if (activityName && activityName.trim() !== "") {
+      const activityTime = prompt("Entrez l'heure (ex: 14:00) :");
+      const newActivity = document.createElement('li');
+      newActivity.className = 'activity-item';
+      newActivity.style.padding = '10px';
+      newActivity.style.borderBottom = '1px solid #eee';
+      newActivity.innerHTML = `
+        <span>${activityName} (${activityTime || 'Heure non définie'})</span>
+        <button class="mark-complete">Mark Complete</button>
+      `;
+      activityList.appendChild(newActivity);
+
+      // Réattacher l'événement au nouveau bouton
+      newActivity.querySelector('.mark-complete').addEventListener('click', () => {
+        newActivity.style.backgroundColor = '#d4edda';
+        newActivity.querySelector('.mark-complete').textContent = 'Completed';
+        newActivity.querySelector('.mark-complete').style.backgroundColor = 'green';
+      });
+    } else {
+      alert("Le nom de l'activité ne peut pas être vide !");
+    }
+  });
+}
+</script>

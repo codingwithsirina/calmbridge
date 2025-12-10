@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalmBridge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-circle circle-yellow"></div>
+    <div class="background-circle circle-green"></div>
+
+    <header class="header">
+        <h1 class="title">CalmBridge</h1>
+        <p class="subtitle">A supportive companion for children with autism, connecting families and healthcare providers</p>
+    </header>
+
+    <section class="cards">
+        <div class="card" data-role="Child">
+            <div class="icon">👶</div>
+            <h2>Child</h2>
+            <p>Games, activities, and your AI friend</p>
+        </div>
+        <div class="card" data-role="Parent">
+            <div class="icon">👨‍👩‍👧‍👦</div>
+            <h2>Parent</h2>
+            <p>Manage activities and monitor progress</p>
+        </div>
+        <div class="card" data-role="Doctor">
+            <div class="icon">🩺</div>
+            <h2>Doctor</h2>
+            <p>Professional insights and data analysis</p>
+        </div>
+    </section>
+
+    <!-- Modale -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            
+            <!-- Onglets -->
+            <div class="tabs">
+                <button class="tab active" data-tab="login">Connexion</button>
+                <button class="tab" data-tab="register">Inscription</button>
+            </div>
+
+            <!-- Formulaire Connexion -->
+            <form id="loginForm" class="form active">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Mot de passe" required>
+                <button type="submit">Se connecter</button>
+                <p>Pas de compte ? <a href="#" class="switch-tab" data-tab="register">Créer un compte</a></p>
+            </form>
+
+            <!-- Formulaire Inscription -->
+            <form id="registerForm" class="form">
+                <input type="text" placeholder="Nom complet" id="nomcomp" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Mot de passe" required>
+                <input type="password" placeholder="Confirmer mot de passe" required>
+                <input type="hidden" id="userRole" name="role">
+                <button type="submit">S'inscrire</button>
+                <p>Déjà un compte ? <a href="#" class="switch-tab" data-tab="login">Se connecter</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

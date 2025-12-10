@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calm Breathing Timer</title>
+    <link rel="stylesheet" href="breathing.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🌬️ Calm Breathing</h1>
+        <p class="subtitle">Follow the circle to breathe deeply and relax</p>
+        
+        <div class="breathing-circle" id="breathing-circle">
+            <div class="circle-inner">
+                <div class="instruction" id="instruction">Breathe In</div>
+                <div class="timer" id="timer">4</div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button id="start-btn">Start Breathing</button>
+            <button id="pause-btn" disabled>Pause</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+        
+        <div class="breathing-options">
+            <label>Pattern:</label>
+            <select id="pattern-select">
+                <option value="4-4-4-4">4-4-4-4 (Box Breathing)</option>
+                <option value="4-7-8">4-7-8 (Relaxing)</option>
+                <option value="5-5">5-5 (Equal)</option>
+                <option value="3-3-6-3">3-3-6-3 (Energy)</option>
+            </select>
+        </div>
+        
+        <div class="session-info">
+            <div>Cycle: <span id="cycle-count">0</span></div>
+            <div>Total Time: <span id="total-time">0:00</span></div>
+        </div>
+        
+        <div class="guide">
+            <h3>Breathing Guide:</h3>
+            <p>• <span class="inhale">Breathe IN</span> through your nose</p>
+            <p>• <span class="hold">HOLD</span> your breath</p>
+            <p>• <span class="exhale">Breathe OUT</span> through your mouth</p>
+        </div>
+    </div>
+
+    <script src="breathing.js"></script>
+</body>
+</html>

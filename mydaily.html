@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Daily Schedule</title>
+<link rel="stylesheet" href="daily.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="navbar">
+    <nav>
+        <ul>
+            
+<header class="navbar">
+    <nav>
+        <ul>
+            <li class="active"><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="mydaily.html"><i class="fas fa-calendar-day"></i> My Day</a></li>
+            <li><a href="games.html"><i class="fas fa-gamepad"></i> Games</a></li>
+            <li><a href="chatai.html"><i class="fas fa-user-friends"></i> My Friend</a></li>
+            <li><a href="chatdad.html"><i class="fas fa-comments"></i> Talk to Mom/Dad</a></li>
+        </ul>
+    </nav>
+</header>
+
+        </ul>
+    </nav>
+    <button class="exit-btn">Exit</button>
+</header>
+
+<section class="main-content">
+    <h1 class="title">My Daily Schedule <span>📅</span></h1>
+    <p class="subtitle">Here's what we're doing today!</p>
+
+<div class="progress-box">
+    <h2>Great Progress! 🌟</h2>
+    <p>You've completed <strong id="completed-count">0</strong> out of 6 activities today!</p>
+    <div class="progress-bar">
+        <div class="progress" id="progress-bar"></div>
+    </div>
+</div>
+
+<div class="task-list">
+    <label class="task">
+        <input type="checkbox" class="task-check" data-task="Morning Therapy">
+        <span class="task-text">🏃 Morning Therapy</span>
+        <time>9:00 AM</time>
+    </label>
+
+    <label class="task">
+        <input type="checkbox" class="task-check" data-task="Snack Time">
+        <span class="task-text">🍎 Snack Time</span>
+        <time>10:30 AM</time>
+    </label>
+
+    <label class="task">
+        <input type="checkbox" class="task-check" data-task="Art Time">
+        <span class="task-text">🎨 Art Time</span>
+        <time>11:30 AM</time>
+    </label>
+</div>
+
+</section>
+</body>
+</html>
+<script>
+    const checkboxes = document.querySelectorAll('.task-check');
+const completedCount = document.getElementById('completed-count');
+const progressBar = document.getElementById('progress-bar');
+
+let completed = 0;
+const totalTasks = checkboxes.length;
+
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+        const taskLabel = checkbox.closest('.task');
+        if (checkbox.checked) {
+            completed++;
+            taskLabel.classList.add('completed');
+        } else {
+            completed--;
+            taskLabel.classList.remove('completed');
+        }
+        completedCount.textContent = completed;
+        progressBar.style.width = `${(completed / totalTasks) * 100}%`;
+    });
+});
+</script>
+

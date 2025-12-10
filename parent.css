@@ -1,0 +1,88 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9fc;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-item {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+}
+
+.nav-item.active {
+  color: #007bff;
+}
+
+.logout-btn {
+  background: transparent;
+  border: none;
+  color: #e74c3c;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.welcome {
+  padding: 20px 30px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  padding: 0 30px;
+}
+
+.card {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card.blue { background: #eaf3ff; }
+.card.pink { background: #ffeaf0; }
+.card.purple { background: #f3eaff; }
+
+.card h2 {
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+.status {
+  color: #555;
+}
+
+.recent {
+  background: #fff;
+  margin: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.recent ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recent li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.completed { color: green; }
+.in-progress { color: blue; }
+.pending { color: gray; }
